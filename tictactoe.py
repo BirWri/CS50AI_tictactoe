@@ -23,8 +23,11 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-    # For testing I will return X
-    return X
+    
+    if board.count('X') == board.count('O'):
+        return X
+    else:
+        return O
 
 
 def actions(board):
@@ -38,6 +41,20 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
+    user = player(board)
+   #i = action[0]
+    # = action[1]
+
+    i, j = action
+    print(f"in result function user:{user}")
+    import copy 
+    copy = copy.deepcopy(board)
+    copy[i][j]=user
+
+    print(board)
+    print(copy)
+
+    #return copy
     raise NotImplementedError
 
 
