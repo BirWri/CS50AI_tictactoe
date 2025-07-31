@@ -4,6 +4,7 @@ Tic Tac Toe Player
 
 import math
 
+# These are used to define the symbol user selected
 X = "X"
 O = "O"
 EMPTY = None
@@ -22,7 +23,8 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
-    raise NotImplementedError
+    # For testing I will return X
+    return X
 
 
 def actions(board):
@@ -50,7 +52,8 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    raise NotImplementedError
+    # For testing I set it False, so the game would continue
+    return False
 
 
 def utility(board):

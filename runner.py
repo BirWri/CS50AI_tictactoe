@@ -53,16 +53,18 @@ while True:
         pygame.draw.rect(screen, white, playOButton)
         screen.blit(playO, playORect)
 
-        # Check if button is clicked
+        # Check if button is clicked and define what symbol user selected
         click, _, _ = pygame.mouse.get_pressed()
         if click == 1:
             mouse = pygame.mouse.get_pos()
             if playXButton.collidepoint(mouse):
                 time.sleep(0.2)
                 user = ttt.X
+                print(user)
             elif playOButton.collidepoint(mouse):
                 time.sleep(0.2)
                 user = ttt.O
+                print(user)
 
     else:
 
@@ -89,11 +91,16 @@ while True:
                 row.append(rect)
             tiles.append(row)
 
+        print(board)
+        #TODO
         game_over = ttt.terminal(board)
+        print(game_over)
+        # TODO ONE OF THE MISSING 
         player = ttt.player(board)
 
         # Show title
         if game_over:
+            #TODO
             winner = ttt.winner(board)
             if winner is None:
                 title = f"Game Over: Tie."
@@ -112,7 +119,9 @@ while True:
         if user != player and not game_over:
             if ai_turn:
                 time.sleep(0.5)
+                #TODO HERE
                 move = ttt.minimax(board)
+                #TODO HERE
                 board = ttt.result(board, move)
                 ai_turn = False
             else:
