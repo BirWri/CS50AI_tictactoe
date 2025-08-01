@@ -3,6 +3,7 @@ Tic Tac Toe Player
 """
 
 import math
+import util
 
 # These are used to define the symbol user selected
 X = "X"
@@ -34,16 +35,27 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    raise NotImplementedError
+
+     # Initialize an empty set
+    availableSquares = set()
+
+    for i in range(3):
+        for j in range(3):
+            if board[i][j] == None:
+                availableSquares.add((i,j))
+    
+    print(availableSquares)
+    return(availableSquares)
+   
 
 
 def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
+
+    #test_board = [['X', 'X', None], ['X', 'O', None], ['O', 'X', 'O']]
     user = player(board)
-   #i = action[0]
-    # = action[1]
 
     i, j = action
     print(f"in result function user:{user}")
@@ -54,7 +66,7 @@ def result(board, action):
     print(board)
     print(copy)
 
-    #return copy
+    return copy
     raise NotImplementedError
 
 

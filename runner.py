@@ -118,7 +118,7 @@ while True:
         # Check for AI move
         if user != player and not game_over:
             if ai_turn:
-                time.sleep(0.5)
+                time.sleep(1)
                 #TODO HERE
                 move = ttt.minimax(board)
                 #TODO HERE
@@ -128,6 +128,7 @@ while True:
                 ai_turn = True
 
         # Check for a user move
+        #test_board = [['X', 'X', None], ['X', 'O', None], ['O', 'X', 'O']]
         click, _, _ = pygame.mouse.get_pressed()
         if click == 1 and user == player and not game_over:
             mouse = pygame.mouse.get_pos()
@@ -135,7 +136,8 @@ while True:
                 for j in range(3):
                     if (board[i][j] == ttt.EMPTY and tiles[i][j].collidepoint(mouse)):
                         #TODO HERE
-                        board = ttt.result(board, (i, j))
+                        board = ttt.result(test_board, (i, j))
+                        # is there a warning when user clicks on an occupied place?
 
         if game_over:
             againButton = pygame.Rect(width / 3, height - 65, width / 3, 50)
