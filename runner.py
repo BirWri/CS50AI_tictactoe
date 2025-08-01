@@ -118,7 +118,7 @@ while True:
         # Check for AI move
         if user != player and not game_over:
             if ai_turn:
-                time.sleep(1)
+                time.sleep(0.5)
                 #TODO HERE
                 move = ttt.minimax(board)
                 #TODO HERE
@@ -136,7 +136,8 @@ while True:
                 for j in range(3):
                     if (board[i][j] == ttt.EMPTY and tiles[i][j].collidepoint(mouse)):
                         #TODO HERE
-                        board = ttt.result(test_board, (i, j))
+                        board = ttt.result(board, (i, j))
+
                         # is there a warning when user clicks on an occupied place?
 
         if game_over:

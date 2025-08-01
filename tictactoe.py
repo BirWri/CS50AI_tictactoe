@@ -24,8 +24,21 @@ def player(board):
     """
     Returns player who has the next turn on a board.
     """
+
+    playerX = 0
+    playerO = 0 
+
+    for i in range(3):
+        for j in range(3):
+            if board[i][j] == 'X':
+                playerX =+1
+            if board[i][j] == 'O':
+                playerO =+1
+
+    print(playerX)
+    print(playerO)
     
-    if board.count('X') == board.count('O'):
+    if playerX == playerO:
         return X
     else:
         return O
@@ -96,4 +109,10 @@ def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
+
+    availableOption = actions(board)
+    print(availableOption)
+    move = list(availableOption)[0]
+
+    return move
     raise NotImplementedError
