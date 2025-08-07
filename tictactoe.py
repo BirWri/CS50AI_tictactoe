@@ -100,7 +100,9 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    # check the number of abailable sets
+    # FOR TESTING: check the number of abailable sets
+    # FOR ACTUAL IMPLEMENTATION - need to check if a user has achieved 3 in a row!
+    # need a way to evaluate the board for 3 in a row scenario...
     if len(actions(board)) == 0:
         return True
     else:
@@ -113,6 +115,10 @@ def utility(board):
     """
 
     # I guess here the adjesiant pieces are evaluated...?
+    # Fetch the user
+    # Calculate the sum of rows, columns and the 2 diaogonals
+    # where X = 1, O = -1 and None = 0
+    # Return 1, -1 or 0
     
 
 def minimax(board):
@@ -120,6 +126,9 @@ def minimax(board):
     Returns the optimal action for the current player on the board.
     """
 
+    # Fetch the user
+    # Calculate the sum of rows, columns and the 2 diaogonals
+    # where X = 1, O = -1 and None = 0
     # I think utility is used here to help to determine when selection for action is used
     # The target is defined by the selection of the player - player O aims for -1 or 0 result,
     # player X aims for 1 or 0 result.
