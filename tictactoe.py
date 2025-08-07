@@ -4,6 +4,7 @@ Tic Tac Toe Player
 
 import math
 import util
+import copy 
 
 # These are used to define the symbol user selected
 X = "X"
@@ -35,8 +36,6 @@ def player(board):
             if board[i][j] == 'O':
                 playerO += 1
 
-    print(playerX)
-    print(playerO)
     
     if playerX == playerO:
         return X
@@ -67,14 +66,21 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
 
+    #TODO figure out why it isnt working if it is on top of the file
+    import copy
     #test_board = [['X', 'X', None], ['X', 'O', None], ['O', 'X', 'O']]
+    # Fetch if the user is X or O
     user = player(board)
-
+    # Obtain the coordinates as values
     i, j = action
-    print(f"in result function user:{user}")
-    import copy 
+    # Make a deep copy of the board
     copy = copy.deepcopy(board)
-    copy[i][j]=user
+    # Add the new selection to the board
+    if copy[i][j] == None:
+        copy[i][j]=user
+    else:
+        print("Square not available")
+        raise ValueError
 
     print(board)
     print(copy)
@@ -87,6 +93,8 @@ def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
+
+    # returns either X, O or None
     raise NotImplementedError
 
 
@@ -94,8 +102,11 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    # For testing I set it False, so the game would continue
-    return False
+    # check the number of abailable sets
+    if len(actions(board)) == 0:
+        return True
+    else:
+        return False
 
 
 def utility(board):
