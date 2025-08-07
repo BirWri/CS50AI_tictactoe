@@ -31,9 +31,9 @@ def player(board):
     for i in range(3):
         for j in range(3):
             if board[i][j] == 'X':
-                playerX =+1
+                playerX += 1
             if board[i][j] == 'O':
-                playerO =+1
+                playerO += 1
 
     print(playerX)
     print(playerO)
@@ -80,7 +80,7 @@ def result(board, action):
     print(copy)
 
     return copy
-    raise NotImplementedError
+    
 
 
 def winner(board):
