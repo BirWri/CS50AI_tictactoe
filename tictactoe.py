@@ -57,6 +57,7 @@ def actions(board):
                 availableSquares.add((i,j))
     
     print(availableSquares)
+    print(board)
     return(availableSquares)
    
 
@@ -81,9 +82,6 @@ def result(board, action):
     else:
         print("Square not available")
         raise ValueError
-
-    print(board)
-    print(copy)
 
     return copy
     
@@ -113,13 +111,18 @@ def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    raise NotImplementedError
 
+    # I guess here the adjesiant pieces are evaluated...?
+    
 
 def minimax(board):
     """
     Returns the optimal action for the current player on the board.
     """
+
+    # I think utility is used here to help to determine when selection for action is used
+    # The target is defined by the selection of the player - player O aims for -1 or 0 result,
+    # player X aims for 1 or 0 result.
 
     availableOption = actions(board)
     print(availableOption)
